@@ -1,0 +1,33 @@
+{
+  "name": "espectrofotometro",
+  "version": "1.0.0",
+  "description": "Espectrofotometro - CMUA - Uniandes",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JADC362/ProyectoAnaloga.git"
+  },
+  "keywords": [
+    "arduino",
+    "jquery",
+    "nodejs",
+    "johnnyFive"
+  ],
+  "author": "Uniandes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JADC362/ProyectoAnaloga/issues"
+  },
+  "homepage": "https://github.com/JADC362/ProyectoAnaloga#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "johnny-five": "^1.0.0",
+    "socket.io": "^2.2.0"
+  }
+}

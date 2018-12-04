@@ -1,0 +1,340 @@
+@charset "CP850";
+@font-face {
+  font-family: "Socialico";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Josefin_Sans/JosefinSans-Regular.eot");
+  src: url("../fonts/Josefin_Sans/JosefinSans-Regular.otf"), url("../fonts/Josefin_Sans/JosefinSans-Regular.ttf"); }
+
+html, body {
+	margin: 0;
+	padding: 0;
+	max-width: 100%;
+	line-height: normal;
+	width: 100%;
+	height: 100%; 
+}
+
+a {
+  text-decoration: none;
+  color: inherit; }
+
+p{
+	margin: 0;
+	padding: 0;
+	cursor: default;
+}
+
+body {
+ 	overflow-x: hidden; 
+	background-color: #f3f6fa;
+}
+
+.font_OFL {
+  font-family: 'Josefin Sans', sans-serif;}
+
+header{
+	width: 15%;
+	min-width: 200px;
+	max-width: 350px;
+	height: 100%;
+	background-color: #373d52;
+	position: fixed;
+	top: 0px;
+	color: #ffffff;
+	vertical-align: middle;
+	border-right: 2px solid rgba(0,0,0,0.9);
+}
+
+header #dashboardImage{
+	width: 100%;
+	height: 150px;
+	position: relative;
+	top: 0px;
+	text-align: center;
+}
+header #dashboardImage #dashboardImageProfile{
+	border-radius: 100%;
+	width: 30%;
+	margin-top: 30px;
+}
+header #dashboardImage #dashboardImageNameElement{
+	margin-top: 15px;
+	font-size: 1.2em;
+}
+header #dashboardImage #dashboardImageNameGroup{
+	font-size: 0.8em;
+	opacity: 0.5;
+}
+
+
+header #dashboardControlSwith{
+	position: absolute;
+	top: 30%;
+	width: 80%;
+	border-radius: 15px;
+	box-sizing: border-box;
+	left: 10%;
+	background-color: #282d3e;
+	text-align: center;
+}
+header #dashboardControlSwith p{
+	width: 48%;
+	padding: 7px 0px;
+	box-sizing: border-box;
+	border-radius: 15px;
+	display: inline-block;
+	vertical-align: top;
+	text-align: center;
+	font-size: 0.7em;
+	position: relative;
+	z-index: 2;
+}
+header #dashboardControlSwith #dashboardControlSwithR{
+	height: 100%;
+	width: 50%;
+	position: absolute;
+	left: 0;
+	border-radius: 15px;
+	background-color: #00ba9f;
+	z-index: 1;
+}
+header #dashboardControlSwith #dashboardControlSwithOn{
+	cursor: pointer;
+	opacity: 0.5;
+}
+
+header #dashboardControlPanel{
+	position: absolute;
+	top: 43%;
+	width: 80%;
+	left: 10%;
+}
+header #dashboardControlPanel ul{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	position: relative;
+}
+header #dashboardControlPanel ul li{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	padding: 3px 0;
+	transition: .4s all;
+	cursor: pointer;
+	color: #cccccc;
+}
+header #dashboardControlPanel ul li:hover{
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	padding: 3px 0;
+	color: #ffffff;
+}
+header #dashboardControlPanel ul li .dashboardControlButtons{
+	background: #282d3e;
+	border-radius: 100%;
+	border: 0;
+	padding: 7px;
+	display: inline-block;
+	text-align: center;
+}
+header #dashboardControlPanel ul li .dashboardControlText{
+	height: 25px;
+	margin-left: 20px;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	font-size: 0.8em;
+}
+header #dashboardControlPanel .dashboardControlButtons img{
+	width: 15px;
+	height: 15px;
+	text-align: center;
+}
+
+header #dashboardInfo{
+	position: absolute;
+	bottom: 30px;
+	font-size: 0.5em;
+	text-align: center;
+}
+header #dashboardInfo #dashboardInfoIntegrateTitulo{
+	font-size: 1.3em;
+}
+header #dashboardInfo #dashboardInfoImage{
+	margin-top: 20px;
+	width: 40%;
+}
+
+#generalSection{
+	width: 85%;
+	position: absolute;
+	left: 15%;
+	top: 0px;
+	white-space: nowrap;
+}
+
+#generalStatistics{
+	width: 100%;
+	position: relative;
+	height: auto;
+	text-align: center;
+}
+#generalStatistics ul{
+	padding: 0;
+}
+#generalStatistics .statisticsGeneralSystem{
+	display: inline-block;
+	width: 15%;
+	min-width: 150px;
+	margin: 15px;
+	background-color: #ffffff;
+	overflow: hidden;
+	border-radius: 7px;
+	border: 1.5px solid #e0e7eb;
+}
+#generalStatistics .statisticsGeneralSystem .statisticsGeneralSystemMeasure{
+	width: 100%;
+	padding: 30px 0px;
+}
+#generalStatistics .statisticsGeneralSystem .statisticsGeneralSystemMeasure .SystemMeasure{
+	font-size: 2.5em;
+	font-weight: bold;
+	color: #657b8d;
+}
+#generalStatistics .statisticsGeneralSystem .statisticsGeneralSystemMeasure .TitleMeasure{
+	font-size: 0.9em;
+	color: #00ba9f;
+	margin-top: -10px;
+}
+#generalStatistics .statisticsGeneralSystem .statisticsGeneralSystemChange{
+	width: 100%;
+	padding: 15px 0;
+	background-color: #f8f8fb;
+	border-top: 1.5px solid #e0e7eb;
+	font-size: 0.8em;
+}
+
+.SecGeneralGraphs{
+	width: 50%;
+	height: auto;
+	position: relative;
+	display: inline-block;
+}
+.SecGeneralGraphs .generalGraphs{
+	width: 90%;
+	white-space: normal;
+	min-width: 500px;
+	height: auto;
+	margin: 20px auto;
+	padding: 0px 20px;
+	box-sizing: border-box;
+}
+.SecGeneralGraphs .holderGraphs{
+	overflow: hidden;
+	border: 1.5px solid #e0e7eb;
+	border-radius: 10px;
+}
+.SecGeneralGraphs .generalGraphs .generalGraphsTitle{
+	width: 100%;
+	height: auto;
+	background-color: #f8f8fb;
+	border-bottom: 1.5px solid #e0e7eb;
+	color: #00b99f;
+	padding: 10px 0px;
+	font-size: 1.2em;
+	padding-left: 50px;
+}
+.SecGeneralGraphs .generalGraphs .canvasGraphs{
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 300px;
+}
+
+#ControlGraphs{
+	height: auto;
+	width: 90%;
+	margin: 0 auto;
+	white-space: nowrap;
+	position: relative;
+	margin-top: 20px;
+}
+#ControlGraphs .controlLed{
+	background-color: #ffffff;
+	border: 1px solid #e0e7eb;
+	display: inline-block;
+	width: 30%;
+	margin: 0px 1%;
+	white-space: normal;
+	height: auto;
+	box-sizing: border-box;
+	overflow: hidden;
+	color: #373d52;
+	text-align: center;
+	border-right: 1px solid #e0e7eb;
+	border-radius: 10px;
+}
+
+#ControlGraphs .controlLed .controlLedTitle{
+	width: 100%;
+	padding: 10px 0px;
+	position: relative;
+	font-size: 1.2em;
+	color: #07b99f;
+	border-bottom: 1px solid #e0e7eb;
+	white-space: normal;
+}
+#ControlGraphs .controlLed .controlLedTitle .controlLedLabel{
+	width: 100%;
+	position: relative;
+}
+#ControlGraphs .controlLed .controlLedTitle .controlLedImage{
+	width: 15px;
+	position: absolute;
+	right: 15px;
+}
+#ControlGraphs .controlLed .controlLedTitle .controlLedImage img{
+	width: 20px;
+	margin-top: -5px;
+	cursor: pointer;
+}
+#ControlGraphs .controlLed .controlLedTitle p{
+	display: inline-block;
+}
+#ControlGraphs .controlLed .controlLedList{
+	width: 100%;
+	list-style: none;
+	font-size: 0.8em;
+	padding: 0;
+	margin: 0;
+	white-space: nowrap;
+	background-color: #f8f8fb;
+}
+#ControlGraphs .controlLed .controlLedList li{
+	padding: 0;
+	margin: 0;
+	width: 33%;
+	white-space: normal;
+	box-sizing: border-box;
+	display: inline-block;
+	padding: 10px 0;
+	cursor: pointer;
+	text-align: center;
+	transition: 0.4s all;
+}
+#ControlGraphs .controlLed .controlLedList li:hover{
+	background-color: #E0E0EE;
+}
+#ControlGraphs .controlLed .controlLedList li p{
+	display: inline-block;
+	margin: 0px 5px;
+}
+#ControlGraphs .controlLed .controlLedList li .generalGraphsListIndicador{
+	border-radius: 100%;
+	width: 6px;
+	height: 6px;
+	border: 1px solid #A6B7CF;
+}

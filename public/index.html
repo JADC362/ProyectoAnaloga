@@ -1,0 +1,210 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Espectrofotometro</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="font_OFL">
+  <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+
+
+  <header id="dashboard">
+    <div id="dashboardImage">
+      <p><img id="dashboardImageProfile" src="img/LogoCMUA.png"></p>
+      <p id="dashboardImageNameElement">Espectrofotometro</p>
+      <p id="dashboardImageNameGroup">CMUA</p>
+    </div>
+    <div id="dashboardControlSwith"> 
+        <p id="dashboardControlSwithR"></p>
+        <p id="dashboardControlSwithOff">Apagado</p>
+        <p id="dashboardControlSwithOn">Encendido</p>
+    </div>
+    <div id="dashboardControlPanel">
+        <ul>
+          <li id="ControlConexionArduino">
+            <p class="dashboardControlButtons"><img src="img/correct-symbol.png"></p>
+            <p class="dashboardControlText">Conexion arduino</p>
+          </li>
+          <li id="ControlFlujoSistema">
+            <p class="dashboardControlButtons"><img src="img/correct-symbol.png"></p>
+            <p class="dashboardControlText">Flujo Sistema</p>
+          </li>
+        </ul>
+    </div>
+    <div id="dashboardInfo">
+        <p id="dashboardInfoIntegrateTitulo">Integrantes:</p>
+        <p class="dashboardInfoIntegrates">John Alejandro Duarte Carrasco</p>
+        <p class="dashboardInfoIntegrates">Diego Felipe Martinez Valencia</p>
+        <p class="dashboardInfoIntegrates">Jonathan Steven Roncancio Pinzon</p>
+        <p class="dashboardInfoIntegrates">Santiago Tovar Perilla</p>
+        <p><img src="img/logoUniversidad.png" id="dashboardInfoImage"></p>
+    </div>
+  </header>
+
+  <section id="generalSection">
+    <section id="ControlGraphs">
+    <div class="controlLed">
+      <div class="controlLedTitle">
+        <p class="controlLedLabel">Led: Rojo</p>
+        <p class="controlLedImage">
+          <img src="img/export.png">
+        </p>
+      </div>
+      <ul class="controlLedList">
+        <li><p data-color="#d50000" id="colorSensor11"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Rojo</p></li>
+        <li><p data-color="#43a047" id="colorSensor12"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Verde</p></li>
+        <li><p data-color="#2979ff" id="colorSensor13"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Azul</p></li>
+      </ul>
+      
+    </div>
+    <div class="controlLed">
+      <div class="controlLedTitle">
+        <p class="controlLedLabel">Led: Azul</p>
+        <p class="controlLedImage">
+          <img src="img/export.png">
+        </p>
+      </div>
+      <ul class="controlLedList">
+        <li><p data-color="#d50000" id="colorSensor21"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Rojo</p></li>
+        <li><p data-color="#43a047" id="colorSensor22"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Verde</p></li>
+        <li><p data-color="#2979ff" id="colorSensor23"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Azul</p></li>
+      </ul>
+      
+    </div>
+    <div class="controlLed">
+      <div class="controlLedTitle">
+        <p class="controlLedLabel">Led: Verde</p>
+        <p class="controlLedImage">
+          <img src="img/export.png">
+        </p>
+      </div>
+      <ul class="controlLedList">
+        <li><p data-color="#d50000" id="colorSensor31"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Rojo</p></li>
+        <li><p data-color="#43a047" id="colorSensor32"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Verde</p></li>
+        <li><p data-color="#2979ff" id="colorSensor33"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Azul</p></li>
+      </ul>
+      
+    </div>
+  </section>
+  
+  <section id="generalStatistics">
+    <ul>
+    <li class="statisticsGeneralSystem">
+      <div class="statisticsGeneralSystemMeasure">
+        <p class="SystemMeasure">1000</p>
+        <p class="TitleMeasure">Medida</p>
+      </div>
+      <div class="statisticsGeneralSystemChange">
+        <p>Info Adicional</p>
+      </div>
+    </li>
+    <li class="statisticsGeneralSystem">
+      <div class="statisticsGeneralSystemMeasure">
+        <p class="SystemMeasure">1000</p>
+        <p class="TitleMeasure">Medida</p>
+      </div>
+      <div class="statisticsGeneralSystemChange">
+        <p>Info Adicional</p>
+      </div>
+    </li>
+    <li class="statisticsGeneralSystem">
+      <div class="statisticsGeneralSystemMeasure">
+        <p class="SystemMeasure">1000</p>
+        <p class="TitleMeasure">Medida</p>
+      </div>
+      <div class="statisticsGeneralSystemChange">
+        <p>Info Adicional</p>
+      </div>
+    </li>
+    <li class="statisticsGeneralSystem">
+      <div class="statisticsGeneralSystemMeasure">
+        <p class="SystemMeasure">1000</p>
+        <p class="TitleMeasure">Medida</p>
+      </div>
+      <div class="statisticsGeneralSystemChange">
+        <p>Info Adicional</p>
+      </div>
+    </li>
+    <li class="statisticsGeneralSystem">
+      <div class="statisticsGeneralSystemMeasure">
+        <p class="SystemMeasure">1000</p>
+        <p class="TitleMeasure">Medida</p>
+      </div>
+      <div class="statisticsGeneralSystemChange">
+        <p>Info Adicional</p>
+      </div>
+    </li>
+    </ul>
+  </section>
+
+  <section class="SecGeneralGraphs" id="GraphsAbs">
+      <div class="generalGraphs">
+        <div class="holderGraphs" id="graphAbsLedRed">
+          <p class="generalGraphsTitle">Absorbancia: LED Rojo</p>
+          <canvas class="canvasGraphs"></canvas>
+        </div>
+      </div>
+      <div class="generalGraphs">
+        <div class="holderGraphs" id="graphAbsLedAzul">
+          <p class="generalGraphsTitle">Absorbancia: LED Azul</p>
+          <canvas class="canvasGraphs"></canvas>
+        </div>
+      </div>
+      <div class="generalGraphs">
+        <div class="holderGraphs" id="graphAbsLedVerde">
+          <p class="generalGraphsTitle">Absorbancia: LED Verde</p>
+          <canvas class="canvasGraphs"></canvas>
+        </div>
+      </div>
+  </section>
+
+  <section class="SecGeneralGraphs" id="GraphsCon">
+      <div class="generalGraphs">
+        <div class="holderGraphs" id="graphAbsLedRed">
+          <p class="generalGraphsTitle">Concentracion: LED Rojo</p>
+          <canvas class="canvasGraphs"></canvas>
+        </div>
+      </div>
+      <div class="generalGraphs">
+        <div class="holderGraphs" id="graphAbsLedAzul">
+          <p class="generalGraphsTitle">Concentracion: LED Azul</p>
+          <canvas class="canvasGraphs"></canvas>
+        </div>
+      </div>
+      <div class="generalGraphs">
+        <div class="holderGraphs" id="graphAbsLedVerde">
+          <p class="generalGraphsTitle">Concentracion: LED Verde</p>
+          <canvas class="canvasGraphs"></canvas>
+        </div>
+      </div>
+  </section>
+  </section>
+
+  <script src="js/vendor/socket.io.js"></script>
+  <script src="js/vendor/modernizr-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/vendor/jquery.animate-colors-min.js"></script>
+
+</body>
+</html>
