@@ -37,14 +37,15 @@
     </div>
     <div id="dashboardControlPanel">
         <ul>
-          <li id="ControlConexionArduino">
+          <li id="ControlSensorsSelected" data-state=0>
+            <p class="dashboardControlButtons"><img src="img/correct-symbol.png"></p>
+            <p class="dashboardControlText">Sensores seleccionados</p>
+          </li>
+          <li id="ControlConexionArduino" data-state=0>
             <p class="dashboardControlButtons"><img src="img/correct-symbol.png"></p>
             <p class="dashboardControlText">Conexion arduino</p>
           </li>
-          <li id="ControlFlujoSistema">
-            <p class="dashboardControlButtons"><img src="img/correct-symbol.png"></p>
-            <p class="dashboardControlText">Flujo Sistema</p>
-          </li>
+         
         </ul>
     </div>
     <div id="dashboardInfo">
@@ -157,7 +158,7 @@
       <div class="generalGraphs">
         <div class="holderGraphs" id="graphAbsLedRed">
           <p class="generalGraphsTitle">Absorbancia: LED Rojo</p>
-          <canvas class="canvasGraphs"></canvas>
+          <canvas id="AbsorbanciaRojo" class="canvasGraphs"></canvas>
         </div>
       </div>
       <div class="generalGraphs">
@@ -183,7 +184,7 @@
       </div>
       <div class="generalGraphs">
         <div class="holderGraphs" id="graphAbsLedAzul">
-          <p class="generalGraphsTitle">Concentracion: LED Azul</p>
+          <p class="generalGraphsTitle">1Concentracion: LED Azul</p>
           <canvas class="canvasGraphs"></canvas>
         </div>
       </div>
@@ -196,6 +197,9 @@
   </section>
   </section>
 
+  <script src="js/vendor/graphk.js"></script>
+  <script src="js/vendor/graphk_object.js"></script>
+  <script src="js/vendor/graphk_util.js"></script>
   <script src="js/vendor/socket.io.js"></script>
   <script src="js/vendor/modernizr-3.6.0.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js"
