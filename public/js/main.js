@@ -2,6 +2,9 @@ var colorGreen = "#00ba9f";
 var colorGrayOff = "#282d3e";
 var colorWhite = "#ffffff";
 var socket;
+var graphAR;
+var graphAA;
+var graphAV;
 
 var matrizDataAbs = [];
 //Inicio de javascript si el documento ya esta cargado
@@ -28,20 +31,21 @@ function controlsGeneralPanel(thisObj){
 
 function adquirirDatosMedicion(){
 	var startTime = Date.now();
+	socket.on('DatosIntensidad',function(msg){
+		var partesMsg = msg.split(",")
+		var millis = Date.now()-startTime;
+		matrizDataAbs[parseInt(partesMsg[0])].push({x:millis,y:parseFloat(partesMsg[1])});
+		graphAR.rendering();
+		graphAA.rendering();
+		graphAV.rendering();
+});}
+
+function graficarDatosAbsMedicion(){
 	matrizDataAbs = [];
 	for (var i = 0; i < 9; i++) {
 		matrizDataAbs.push(new Array())
 	}
-	socket.on('DatosIntensidad',function(msg){
-		var partesMsg = msg.split(",")
-		var millis = Date.now()-startTime;
-		matrizDataAbs[parseInt(partesMsg[0])].push({x:millis,y:parseFloat(partesMsg[1])})
-	});
-}
-
-function graficarDatosAbsMedicion(){
-
-	var graphAR = new GraphK("#AbsorbanciaRojo");
+	graphAR = new GraphK("#AbsorbanciaRojo");
 
 	var graphDataRR = new GraphDataK("Sensor Rojo",matrizDataAbs[0]);
 	graphDataRR.setType("line");
@@ -67,9 +71,9 @@ function graficarDatosAbsMedicion(){
 	graphAR.chartDataVisible = false;
 	graphAR.chartAxisScaleVisible = false;
 	graphAR.contentTitle = "";
-	graphAR.rendering();
+	//graphAR.rendering();
 
-	var graphAA = new GraphK("#AbsorbanciaAzul");
+	graphAA = new GraphK("#AbsorbanciaAzul");
 
 	var graphDataAR = new GraphDataK("Sensor Rojo",matrizDataAbs[4]);
 	graphDataAR.setType("line");
@@ -95,9 +99,9 @@ function graficarDatosAbsMedicion(){
 	graphAA.chartDataVisible = false;
 	graphAA.chartAxisScaleVisible = false;
 	graphAA.contentTitle = "";
-	graphAA.rendering();
+	//graphAA.rendering();
 
-	var graphAV = new GraphK("#AbsorbanciaVerde");
+	graphAV = new GraphK("#AbsorbanciaVerde");
 
 	var graphDataVR = new GraphDataK("Sensor Rojo",matrizDataAbs[7]);
 	graphDataVR.setType("line");
@@ -124,7 +128,7 @@ function graficarDatosAbsMedicion(){
 	graphAV.chartAxisScaleVisible = false;
 	graphAV.contentTitle = "";
 	graphAV.contentXTitle = "Tiempo";
-	graphAV.rendering();
+	//graphAV.rendering();
 }
 
 //Funcion general del codigo
@@ -177,13 +181,13 @@ function init(){
 
 					//Emicion de la acciones iniciarMedicion, con los sensores a utilizar
 					socket.emit("IniciarMedicion",$("#colorSensor11").data("state")+","+$("#colorSensor12").data("state")+","+$("#colorSensor13").data("state")+","+$("#colorSensor21").data("state")+","+$("#colorSensor22").data("state")+","+$("#colorSensor23").data("state")+","+$("#colorSensor31").data("state")+","+$("#colorSensor32").data("state")+","+$("#colorSensor33").data("state"));
-					adquirirDatosMedicion();
 					graficarDatosAbsMedicion();
+					adquirirDatosMedicion();
 				}
 				else{
 					alert("Verificar condiciones");
 				}
-			},500);s
+			},500);
 		}
 		else{
 			alert("Seleccione algun sensor para medir.")
