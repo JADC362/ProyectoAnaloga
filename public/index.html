@@ -63,42 +63,44 @@
     <div class="controlLed">
       <div class="controlLedTitle">
         <p class="controlLedLabel">Led: Rojo</p>
-        <p class="controlLedImage">
+        <p class="controlLedImage" id="controlLedImageRed">
           <img src="img/export.png">
         </p>
       </div>
       <ul class="controlLedList">
         <li><p data-color="#d50000" id="colorSensor11"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Rojo</p></li>
-        <li><p data-color="#43a047" id="colorSensor12"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Verde</p></li>
-        <li><p data-color="#2979ff" id="colorSensor13"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Azul</p></li>
+        <li><p data-color="#2979ff" id="colorSensor12"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Azul</p></li>
+        <li><p data-color="#43a047" id="colorSensor13"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Verde</p></li>
+        
       </ul>
       
     </div>
     <div class="controlLed">
       <div class="controlLedTitle">
         <p class="controlLedLabel">Led: Azul</p>
-        <p class="controlLedImage">
+        <p class="controlLedImage" id="controlLedImageBlue">
           <img src="img/export.png">
         </p>
       </div>
       <ul class="controlLedList">
         <li><p data-color="#d50000" id="colorSensor21"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Rojo</p></li>
-        <li><p data-color="#43a047" id="colorSensor22"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Verde</p></li>
-        <li><p data-color="#2979ff" id="colorSensor23"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Azul</p></li>
+        <li><p data-color="#2979ff" id="colorSensor22"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Azul</p></li>
+        <li><p data-color="#43a047" id="colorSensor23"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Verde</p></li>
+       
       </ul>
       
     </div>
     <div class="controlLed">
       <div class="controlLedTitle">
         <p class="controlLedLabel">Led: Verde</p>
-        <p class="controlLedImage">
+        <p class="controlLedImage" id="controlLedImageGreen">
           <img src="img/export.png">
         </p>
       </div>
       <ul class="controlLedList">
         <li><p data-color="#d50000" id="colorSensor31"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Rojo</p></li>
-        <li><p data-color="#43a047" id="colorSensor32"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Verde</p></li>
-        <li><p data-color="#2979ff" id="colorSensor33"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Azul</p></li>
+        <li><p data-color="#2979ff" id="colorSensor32"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Azul</p></li>
+         <li><p data-color="#43a047" id="colorSensor33"class="generalGraphsListIndicador" data-state=0></p><p>Sensor Verde</p></li>
       </ul>
       
     </div>
@@ -156,21 +158,24 @@
 
   <section class="SecGeneralGraphs" id="GraphsAbs">
       <div class="generalGraphs">
+        <input class="boxConcentracion" id="boxConcentracionRojo" value = "1" type="text" name="FacConRojo">
         <div class="holderGraphs" id="graphAbsLedRed">
           <p class="generalGraphsTitle">Absorbancia: LED Rojo</p>
           <canvas id="AbsorbanciaRojo" class="canvasGraphs"></canvas>
         </div>
       </div>
       <div class="generalGraphs">
+        <input class="boxConcentracion" id="boxConcentracionAzul" value = "1" type="text" name="FacConAzul">
         <div class="holderGraphs" id="graphAbsLedAzul">
           <p class="generalGraphsTitle">Absorbancia: LED Azul</p>
-          <canvas class="canvasGraphs"></canvas>
+          <canvas id="AbsorbanciaAzul" class="canvasGraphs"></canvas>
         </div>
       </div>
       <div class="generalGraphs">
+        <input class="boxConcentracion" id="boxConcentracionVerde" value = "1" type="text" name="FacConVerde">
         <div class="holderGraphs" id="graphAbsLedVerde">
           <p class="generalGraphsTitle">Absorbancia: LED Verde</p>
-          <canvas class="canvasGraphs"></canvas>
+          <canvas id="AbsorbanciaVerde" class="canvasGraphs"></canvas>
         </div>
       </div>
   </section>
@@ -179,19 +184,19 @@
       <div class="generalGraphs">
         <div class="holderGraphs" id="graphAbsLedRed">
           <p class="generalGraphsTitle">Concentracion: LED Rojo</p>
-          <canvas class="canvasGraphs"></canvas>
+          <canvas class="canvasGraphs" id="ConcentracionRojo"></canvas>
         </div>
       </div>
       <div class="generalGraphs">
         <div class="holderGraphs" id="graphAbsLedAzul">
-          <p class="generalGraphsTitle">1Concentracion: LED Azul</p>
-          <canvas class="canvasGraphs"></canvas>
+          <p class="generalGraphsTitle">Concentracion: LED Azul</p>
+          <canvas class="canvasGraphs" id="ConcentracionAzul"></canvas>
         </div>
       </div>
       <div class="generalGraphs">
         <div class="holderGraphs" id="graphAbsLedVerde">
           <p class="generalGraphsTitle">Concentracion: LED Verde</p>
-          <canvas class="canvasGraphs"></canvas>
+          <canvas class="canvasGraphs" id="ConcentracionVerde"></canvas>
         </div>
       </div>
   </section>

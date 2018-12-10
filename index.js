@@ -18,17 +18,157 @@ var green = "00ff00";
 var blue = "0000ff";
 var startTime;
 var socket;
-var iColor = 0;
-var freqMuestreo = 5;
+var intervalo;
 
 server.listen(9015); //Puerto del servidor
 app.use(express.static("public")); //Permite el uso de archivos css, images, js, en el index.html
 
-function tomaDatos(duration, FiltrosR, FiltrosA, FiltrosV) {
+/*function tomaDatos(duration, FiltrosR, FiltrosA, FiltrosV) {
     var Filtros;
-    iColor = 0;
-    S2.low();
-    S3.high();
+    var iColor = 0;
+    var iSensor = 0;
+    var LedInd = 0;
+
+    var settings = {
+          pin: 8,
+          value: board.io.LOW,
+          pulseOut: 5,
+        };
+	var i,j;
+
+    var read = function() {
+          board.io.pingRead(settings, function(microseconds) {
+          	LedRGB.toggle();
+
+
+          	i = iColor%3;
+
+          	switch(i){
+          		case 0:
+          			Filtros = FiltrosR;
+          			LedInd = 1;
+          			break;
+          		case 1:
+          			Filtros = FiltrosA;
+          			LedInd = 4;
+          			break;
+          		case 2:
+          			Filtros = FiltrosV;
+          			LedInd = 7;
+          			break;
+          	}
+
+
+          	j = iSensor%3;
+
+          	LedSen = parseInt(Filtros[j])*(LedInd+j);
+
+          	switch(LedSen){
+          		case 1:
+          			LedRGB.color("red");
+	                S2.low();
+	                S3.low();
+          			break;
+          		case 2:
+          			LedRGB.color("red");
+	                S2.low();
+	                S3.high();
+          			break;	
+          		case 3:
+          			LedRGB.color("red");
+	                S2.high();
+	                S3.high();
+          			break;
+          		case 4:
+          			LedRGB.color("blue");
+	                S2.low();
+	                S3.low();
+          			break;
+          		case 5:
+          			LedRGB.color("blue");
+	                S2.low();
+	                S3.high();
+          			break;	
+          		case 6:
+          			LedRGB.color("blue");
+	                S2.high();
+	                S3.high();
+          			break;
+          		case 7:
+          			LedRGB.color("green");
+	                S2.low();
+	                S3.low();
+          			break;
+          		case 8:
+          			LedRGB.color("green");
+	                S2.low();
+	                S3.high();
+          			break;	
+          		case 9:
+          			LedRGB.color("green");
+	                S2.high();
+	                S3.high();
+          			break;
+          		default:
+          			LedRGB.color("red");
+	                S2.low();
+	                S3.low();
+	                LedSen = 0;
+          	}
+          	iSensor++;
+          	if(iSensor%3==0){iColor++}
+/*	        Led = (iColor % 3);
+	        switch (Led) {
+	            case 0:
+	                LedRGB.color("red");
+	                LedInd = 0;
+	                break;
+	            case 1:
+	                LedRGB.color("blue");
+	                LedInd = 3;
+	                break;
+	            case 2:
+	                LedRGB.color("green");
+	                LedInd = 6;
+	                break;
+	        }
+
+	        LedS = iSensor % 3;
+	        switch (LedS) {
+		            case 0:
+	                    S2.low();
+	                    S3.low();
+	                    break;
+	                case 1:
+	                    S2.low();
+	                    S3.high();
+	                    break;
+	                case 2:
+	                    S2.high();
+	                    S3.high();
+	                    break;
+	        }
+
+	       	iSensor++;
+	       	if (iSensor%3==0) {
+	       		iColor++;
+	       	}
+	       	if ((microseconds<500)) {
+	       		socket.emit("DatosIntensidad",(LedSen-1).toString()+","+microseconds.toString());
+	       		console.log((LedSen-1).toString()+","+microseconds.toString());
+	       	}	
+            if(intervalo){ setTimeout(read, duration);}
+          });
+        }.bind(board);
+
+    read();
+}*/
+
+function tomaDatos(duration, Filtros) {
+    var Filtros;
+    var iColor = 0;
+    var iSensor = 0;
+    var LedInd = 0;
 
     var settings = {
           pin: 8,
@@ -39,6 +179,23 @@ function tomaDatos(duration, FiltrosR, FiltrosA, FiltrosV) {
     var read = function() {
           board.io.pingRead(settings, function(microseconds) {
           	LedRGB.toggle();
+
+	        LedS = iSensor % 3;
+	        switch (LedS) {
+	            case 0:
+                    S2.low();
+                    S3.low();
+                    break;
+                case 1:
+                    S2.low();
+                    S3.high();
+                    break;
+                case 2:
+                    S2.high();
+                    S3.high();
+                    break;
+	        }
+
 	        Led = iColor % 3;
 	        switch (Led) {
 	            case 0:
@@ -54,56 +211,29 @@ function tomaDatos(duration, FiltrosR, FiltrosA, FiltrosV) {
 	                LedInd = 6;
 	                break;
 	        }
-	       	iColor++;
-	       	socket.emit("DatosIntensidad",(LedInd+1).toString()+","+microseconds.toString())
-            //console.log(microseconds)
-            setTimeout(read, freqMuestreo);
+	       	if((microseconds<500) && Filtros[LedInd+LedS]==1){
+	       		socket.emit("DatosIntensidad",(LedInd+LedS).toString()+","+microseconds.toString());
+	       	}
+            if(intervalo){ setTimeout(read, duration);}
+
+	       	iSensor++;
+	       	if(iSensor%3==0){iColor++;}
+
           });
         }.bind(board);
 
-    read();
+	read();
+}
 
-    /*intervalo = setInterval(function() {
-        LedRGB.toggle();
-        Led = iColor % 3;
-        switch (Led) {
-            case 0:
-                LedRGB.color("red");
-                LedInd = 0;
-                Filtros = FiltrosR;
-                break;
-            case 1:
-                LedRGB.color("blue");
-                LedInd = 3;
-                Filtros = FiltrosA;
-                break;
-            case 2:
-                LedRGB.color("green");
-                LedInd = 6;
-                Filtros = FiltrosV;
-                break;
-        }
-       	//iColor++;
-        
-        // Setting red filtered photodiodes to be read
-        /*for (var i = 0; i < 3; i++) {
-            switch (i) {
-                case 0:
-                    S2.low();
-                    S3.low();
-                    break;
-                case 1:
-                    S2.low();
-                    S3.high();
-                    break;
-                case 2:
-                    S2.high();
-                    S3.high();
-                    break;
-            }        	
-        }
+function barridoDatos(){
+	var read = function() {
+         board.io.pingRead(settings, function(microseconds) {
+        	LedRGB.toggle();
 
-    }.bind(LedRGB), duration || 100);*/
+          });
+        }.bind(board);
+
+	read();
 }
 
 //Creacion del socket y comunicacion de nodejs con jquery
@@ -127,11 +257,12 @@ io.on('connection',function(pSocket){
 	});
 	//Escuchar por la accion de iniciar mediciones con los colores deseados
 	//Orden colores: Rojo(1), Azul(2), Verde(3)
-	socket.on('IniciarMedicion',function(msg){
+	socket.on('IniciarMedicionDefinidas',function(msg){
 		colorsensors = msg.split(",");
 		try{
 			board.on("ready",function(){
 				//Inicializacion de objetos para los modelos de arduino
+				intervalo = true;
 				if(LedRGB == null){
 					LedRGB= new five.Led.RGB({pins: { red:10 ,green:11,blue:9  }});
 					S0 = new five.Pin({pin: 4, type: "digital"});
@@ -145,18 +276,39 @@ io.on('connection',function(pSocket){
 				FiltrosR  = [colorsensors[0],colorsensors[1],colorsensors[2]];
 				FiltrosA  = [colorsensors[3],colorsensors[4],colorsensors[5]];
 				FiltrosV  = [colorsensors[6],colorsensors[7],colorsensors[8]];
-				tomaDatos(200,FiltrosR,FiltrosA,FiltrosV);
+				tomaDatos(5,colorsensors);
 			});
 		}
 		catch(err){
 			socket.emit("Peticion","Error: No connected device found");
 		}
-		
+	});
+
+	socket.on('IniciarMedicionBarrido',function(msg){
+		try{
+			board.on("ready",function(){
+				//Inicializacion de objetos para los modelos de arduino
+				if(LedRGB == null){
+					LedRGB= new five.Led.RGB({pins: { red:10 ,green:11,blue:9  }});
+					S0 = new five.Pin({pin: 4, type: "digital"});
+					S1 = new five.Pin({pin: 5, type: "digital"});
+					S2 = new five.Pin({pin: 6, type: "digital"});
+					S3 = new five.Pin({pin: 7, type: "digital"});
+					//Establecer amplificacion de sensor a 20%
+					S0.high();
+					S1.low();
+				}
+				barridoDatos();
+			});
+		}
+		catch(err){
+			socket.emit("Peticion","Error: No connected device found");
+		}
 	});
 
 	//Escucha por la accion de detener mediciones
 	socket.on('DetenerMedicion',function(msg){
-		clearInterval(intervalo);
+		intervalo = false;
 		LedRGB.off();
 	});
 

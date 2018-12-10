@@ -231,6 +231,18 @@ header #dashboardInfo #dashboardInfoImage{
 	padding: 0px 20px;
 	box-sizing: border-box;
 }
+.SecGeneralGraphs .generalGraphs .boxConcentracion{
+	position: absolute;
+	right: -5%;
+	width: 5%;
+	min-width: 50px;
+	padding: 10px;
+	color: #657b8d;
+	background-color: #f8f8fb;
+	border: 1.5px solid #e0e7eb;
+	border-radius: 5px;
+	text-align: center;
+}
 .SecGeneralGraphs .holderGraphs{
 	overflow: hidden;
 	border: 1.5px solid #e0e7eb;
